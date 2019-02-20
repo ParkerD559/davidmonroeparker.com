@@ -9,6 +9,7 @@
     "deploy": "push-dir --dir=dist --branch=gh-pages"
   },
   "dependencies": {
+    "element-ui": "^2.5.4",
     "push-dir": "^0.4.1",
     "vue": "^2.5.22",
     "vue-router": "^3.0.1",
