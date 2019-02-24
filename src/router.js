@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/home.vue';
+import Resume from './views/resume.vue';
+import Blog from './views/blog.vue';
+import Notebooks from './views/notebooks.vue';
 
 Vue.use(Router);
 
@@ -17,19 +20,19 @@ export default new Router({
     {
       path: '/resume',
       name: 'resume',
-      component: () => import(/* webpackChunkName: "resume" */ './views/resume.vue'),
+      component: Resume,
       title: 'Resume',
     },
     {
       path: '/blog',
       name: 'blog',
-      component: () => import(/* webpackChunkName: "blog" */ './views/blog.vue'),
+      component: Blog,
       title: 'Blog',
     },
     {
       path: '/notebooks',
       name: 'notebooks',
-      component: () => import(/* webpackChunkName: "notebooks" */ './views/notebooks.vue'),
+      component: Notebooks,
       title: 'Notebooks',
     },
   ],

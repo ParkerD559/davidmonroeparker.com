@@ -1,29 +1,36 @@
 # davidmonroeparker.com
 
-## Project setup
+### Build with initial dependencies
 ```
-yarn install
+docker-compose build
 ```
+
+### Enter container shell
+```
+docker-compose run --rm --service-ports frontend
+```
+Now everything is normal. Install/reinstall dependencies, call `package.json` scripts, etc.
 
 ### Compiles and hot-reloads for development
 ```
-yarn run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
+yarn build
 ```
 
 ### Lints and fixes files
 ```
-yarn run lint
+yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Deployment
+```
+yarn deploy
+```
+or outside container
+```
+docker-compose run --rm frontend yarn deploy
+```
