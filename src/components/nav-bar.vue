@@ -4,7 +4,9 @@
     mode="horizontal"
     :router="true"
     :default-active="$route.name"
-    active-text-color="#000"
+    background-color="#ffffff"
+    text-color="#602020"
+    active-text-color="#a06060"
   >
     <template v-for='item in $router.options.routes'>
       <el-menu-item

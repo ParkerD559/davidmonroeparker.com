@@ -24,11 +24,14 @@ export default {
 </script>
 
 <style>
+body {
+  color: #602020;
+}
+
 .el-container {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  line-height: 24px;
 }
 </style>
