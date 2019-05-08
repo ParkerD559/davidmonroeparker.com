@@ -96,18 +96,6 @@
         <li>Primarily developed the client TCP communications and a multi-user whiteboard.</li>
         <li><strong>Utilized:</strong> Qt/C++, PHP, TCP Sockets, AWS</li>
       </ul>
-      <h4>@vue-emotion/styled</h4>
-      <ul>
-        <li>Ported the popular React @emotion/styled package to VueJS.</li>
-        <li>Expanded upon the React version with more features suited to VueJS.</li>
-        <li><strong>Utilized:</strong> NPM, Rollup, VueJS</li>
-      </ul>
-      <h4>Disperse</h4>
-      <ul>
-        <li>Developed a windows-only hotkey based window mover/resizer.</li>
-        <li>Gained experience with Windows keyboard hooks and the RawInput API.</li>
-        <li><strong>Utilized:</strong> C++, Windows API</li>
-      </ul>
     </section>
   </div>
 </template>
