@@ -1,9 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/home.vue';
-import Resume from './views/resume.vue';
-import Blog from './views/blog.vue';
-import Notebooks from './views/notebooks.vue';
 
 Vue.use(Router);
 
@@ -16,23 +13,20 @@ export default new Router({
       name: 'home',
       component: Home,
       title: 'davidmonroeparker.com',
-    },
-    {
+    }, {
       path: '/resume',
       name: 'resume',
-      component: Resume,
+      component: () => import('./views/resume.vue'),
       title: 'Resume',
-    },
-    {
+    }, {
       path: '/blog',
       name: 'blog',
-      component: Blog,
+      component: () => import('./views/blog.vue'),
       title: 'Blog',
-    },
-    {
-      path: '/notebooks',
+    }, {
+      path: '/notebooks/:notebook?',
       name: 'notebooks',
-      component: Notebooks,
+      component: () => import('./views/notebooks.vue'),
       title: 'Notebooks',
     },
   ],

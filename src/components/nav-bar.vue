@@ -8,7 +8,7 @@
     text-color="#602020"
     active-text-color="#a06060"
   >
-    <template v-for='item in $router.options.routes'>
+    <template v-for='item in $router.options.routes.filter(route => route.title)'>
       <el-menu-item
         :index="item.name"
         :route="item"
