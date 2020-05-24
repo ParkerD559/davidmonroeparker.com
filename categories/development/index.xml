@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>development on David Parker</title>
+    <link>https://dparker2.github.io/categories/development/</link>
+    <description>Recent content in development on David Parker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 May 2020 10:17:39 -0700</lastBuildDate>
+    
+	<atom:link href="https://dparker2.github.io/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Use AWS CLI to Login With MFA</title>
+      <link>https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/</link>
+      <pubDate>Sun, 24 May 2020 10:17:39 -0700</pubDate>
+      
+      <guid>https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/</guid>
+      <description>&lt;p&gt;Logging into AWS using MFA only requires a very simple script.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
