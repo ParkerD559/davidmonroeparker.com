@@ -1,16 +1,21 @@
 #!/bin/bash
+DIR=public
+BRANCH=master
 
-BUILD_DIR=public
-BUILD_BRANCH=master
+# Ensure clean worktree
+rm -rf $DIR/*
+git worktree prune
 
-git --work-tree $BUILD_DIR checkout --force $BUILD_BRANCH
+# Add build branch as worktree
+git worktree add $DIR $BRANCH
 
-rm -rf $BUILD_BRANCH/*
-
+# Build
 hugo
 
-git --work-tree $BUILD_DIR add -A
-git --work-tree $BUILD_DIR commit -m "Build"
-git --work-tree $BUILD_DIR push
+# Commit/push to build worktree
+git -C $DIR add -A
+git -C $DIR commit -m "Build"
+git -C $DIR push
 
-git checkout --force -
+# Clean up
+git worktree remove $DIR
