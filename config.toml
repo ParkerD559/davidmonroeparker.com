@@ -2,13 +2,13 @@
 # Version : 0.4.7-BETA
 # Author : Thibaud Leprêtre
 
-baseURL = "https://dparker2.github.io/"
+baseURL = "https://davidmparker.com"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "David Parker"
 theme = "hugo-tranquilpeak-theme"
-# TODO disqusShortname = ""
-# TODO googleAnalytics = ""
+disqusShortname = "davidmparker"
+googleAnalytics = "UA-167747559-1"
 paginate = 7
 canonifyurls = true
 

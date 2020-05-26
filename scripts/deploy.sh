@@ -9,6 +9,9 @@ git worktree prune
 # Add build branch as worktree
 git worktree add $DIR $BRANCH
 
+# Ensure updated worktree
+git -C $DIR pull --no-edit
+
 # Build
 hugo
 
