@@ -71,6 +71,12 @@ canonifyurls = true
   name = "Stack Overflow"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-stack-overflow\"></i>"
   url = "https://stackoverflow.com/users/6922497/parkerd"
+[[menu.links]]
+  weight = 3
+  identifier = "linkedin"
+  name = "LinkedIn"
+  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-linkedin\"></i>"
+  url = "https://www.linkedin.com/in/david-parker-954526135/"
 
 [[menu.misc]]
   weight = 1
