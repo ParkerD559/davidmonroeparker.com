@@ -15,8 +15,8 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to Use AWS CLI to Login With MFA">
 <meta name="twitter:title" content="How to Use AWS CLI to Login With MFA">
-<meta property="og:url" content="https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
-<meta property="twitter:url" content="https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
+<meta property="og:url" content="https://davidmparker.com/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
+<meta property="twitter:url" content="https://davidmparker.com/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
 <meta property="og:site_name" content="David Parker">
 <meta property="og:description" content="Logging into AWS using MFA only requires a very simple script.">
 <meta name="twitter:description" content="Logging into AWS using MFA only requires a very simple script.">
@@ -61,12 +61,12 @@
 
     <title>How to Use AWS CLI to Login With MFA</title>
 
-    <link rel="icon" href="https://dparker2.github.io/favicon.png">
+    <link rel="icon" href="https://davidmparker.com/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
+    <link rel="canonical" href="https://davidmparker.com/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -74,12 +74,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="https://dparker2.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    <link rel="stylesheet" href="https://davidmparker.com/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
     
     
 
     
       
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-167747559-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
     
     
   </head>
@@ -89,12 +102,12 @@
       <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://dparker2.github.io/">David Parker</a>
+    <a class="header-title-link" href="https://davidmparker.com/">David Parker</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="https://dparker2.github.io/#about">
+         href="https://davidmparker.com/#about">
     
     
     
@@ -110,7 +123,7 @@
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="https://dparker2.github.io/#about">
+        <a href="https://davidmparker.com/#about">
           <img class="sidebar-profile-picture" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">David Parker</h4>
@@ -123,7 +136,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://dparker2.github.io/">
+      <a class="sidebar-button-link " href="https://davidmparker.com/">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
@@ -133,7 +146,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://dparker2.github.io/categories">
+      <a class="sidebar-button-link " href="https://davidmparker.com/categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
@@ -143,7 +156,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://dparker2.github.io/tags">
+      <a class="sidebar-button-link " href="https://davidmparker.com/tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
@@ -153,7 +166,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://dparker2.github.io/archives">
+      <a class="sidebar-button-link " href="https://davidmparker.com/archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
       
@@ -163,7 +176,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://dparker2.github.io/#about">
+      <a class="sidebar-button-link " href="https://davidmparker.com/#about">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
       
@@ -201,7 +214,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://dparker2.github.io/index.xml">
+      <a class="sidebar-button-link " href="https://davidmparker.com/index.xml">
     
       <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
       
@@ -243,7 +256,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://dparker2.github.io/categories/development">development</a>
+      <a class="category-link" href="https://davidmparker.com/categories/development">development</a>
     
   
 
@@ -285,9 +298,9 @@ An error occurred (AccessDenied) when calling ...
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://dparker2.github.io/tags/aws/">aws</a>
+  <a class="tag tag--primary tag--small" href="https://davidmparker.com/tags/aws/">aws</a>
 
-  <a class="tag tag--primary tag--small" href="https://dparker2.github.io/tags/shell/">shell</a>
+  <a class="tag tag--primary tag--small" href="https://davidmparker.com/tags/shell/">shell</a>
 
                   </div>
                 
@@ -326,24 +339,30 @@ An error occurred (AccessDenied) when calling ...
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://davidmparker.com/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://davidmparker.com/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://davidmparker.com/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
         
       
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
       
       <li class="post-action">
         
@@ -357,6 +376,10 @@ An error occurred (AccessDenied) when calling ...
 </div>
 
             
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
               
             
           </div>
@@ -402,24 +425,30 @@ An error occurred (AccessDenied) when calling ...
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://davidmparker.com/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://davidmparker.com/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://dparker2.github.io/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://davidmparker.com/2020/05/how-to-use-aws-cli-to-login-with-mfa/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
         
       
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
       
       <li class="post-action">
         
@@ -438,19 +467,19 @@ An error occurred (AccessDenied) when calling ...
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdparker2.github.io%2F2020%2F05%2Fhow-to-use-aws-cli-to-login-with-mfa%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdavidmparker.com%2F2020%2F05%2Fhow-to-use-aws-cli-to-login-with-mfa%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fdparker2.github.io%2F2020%2F05%2Fhow-to-use-aws-cli-to-login-with-mfa%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fdavidmparker.com%2F2020%2F05%2Fhow-to-use-aws-cli-to-login-with-mfa%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fdparker2.github.io%2F2020%2F05%2Fhow-to-use-aws-cli-to-login-with-mfa%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fdavidmparker.com%2F2020%2F05%2Fhow-to-use-aws-cli-to-login-with-mfa%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -494,7 +523,7 @@ An error occurred (AccessDenied) when calling ...
     
   
     
-      <div id="cover" style="background-image:url('https://dparker2.github.io/images/cover.jpg');"></div>
+      <div id="cover" style="background-image:url('https://davidmparker.com/images/cover.jpg');"></div>
     
   
 
@@ -507,7 +536,7 @@ An error occurred (AccessDenied) when calling ...
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="https://dparker2.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+<script src="https://davidmparker.com/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
 
 
 <script lang="javascript">
@@ -539,6 +568,28 @@ $(document).ready(function() {
 
 
   
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/davidmparker.com\/2020\/05\/how-to-use-aws-cli-to-login-with-mfa\/';
+          
+            this.page.identifier = '\/2020\/05\/how-to-use-aws-cli-to-login-with-mfa\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'davidmparker';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
     
   
 
