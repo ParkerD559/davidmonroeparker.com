@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.67.1 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.64.1 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="David Parker">
 <meta name="keywords" content="aws, mfa, cli">
 <meta name="description" content="Logging into AWS using MFA only requires a very simple script.">
@@ -254,7 +254,26 @@
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Logging into AWS using MFA only requires a very simple script.</p>
-<p>TBD</p>
+<p>If you have setup multi-factor authenication on your AWS account, you&rsquo;ll find yourself running into an issue using the aws cli:</p>
+<pre><code>$ aws &lt;some command&gt;
+
+An error occurred (AccessDenied) when calling ...
+</code></pre><p>This is because your credentials are no longer enough. You now need to authenticate differently, specifically via your MFA device. The command used to create an authenticated session is <code>aws sts get-session-token</code>. Passing the <code>--serial-number</code> (MFA device arn) and <code>--token-code</code> (MFA code) arguments will return a JSON object containing your new session information. It looks like this:</p>
+<pre><code>{
+    &quot;Credentials&quot;: {
+        &quot;AccessKeyId&quot;: &quot;&lt;key id&gt;&quot;,
+        &quot;SecretAccessKey&quot;: &quot;&lt;secret key&gt;&quot;,
+        &quot;SessionToken&quot;: &quot;&lt;session token&gt;&quot;,
+        &quot;Expiration&quot;: &quot;&lt;ISO 8601 utc datetime&gt;&quot;
+    }
+}
+</code></pre><p>The simplest way to use these credentials is to copy/paste their values into <code>aws configure set</code> to update the <code>default</code> profile credentials. But that&rsquo;s tedious! So let&rsquo;s make a script.</p>
+<p>Luckily there is a useful tool called <a href="https://stedolan.github.io/jq/download/"><code>jq</code></a> that can make parsing the JSON here very easy, and with it the script is very simple:</p>
+<script type="application/javascript" src="https://gist.github.com/dparker2/3887b0427e53247ed50b3f941553caad.js"></script>
+
+<p>To use, first replace the <code>DEVICE</code> variable with your MFA device arn and then call it with your MFA code:</p>
+<pre><code>$ ./configure-aws-mfa.sh &lt;mfa code&gt;
+</code></pre><p>Then do whatever <code>aws</code> things you want! Until your session has expired, then just call the script again to start a new session.</p>
               
             </div>
           </div>
